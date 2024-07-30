@@ -1,0 +1,41 @@
+<div class="products-page">
+        <div class="search-container">
+            <input type="text" id="productSearch" placeholder="Search products...">
+            <button id="addProductBtn">Add Product</button>
+        </div>
+        <table id="productsTable">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Unit Price</th>
+                    <th>Quantity Available</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Product rows will be added here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal for editing products -->
+    <div id="editProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Product</h2>
+            <form id="editProductForm">
+                <input type="hidden" id="editProductId">
+                <label for="editProductName">Product Name</label>
+                <input type="text" id="editProductName">
+                <label for="editProductCategory">Category</label>
+                <input type="text" id="editProductCategory">
+                <label for="editProductUnitPrice">Unit Price</label>
+                <input type="text" id="editProductUnitPrice">
+                <label for="editProductQuantity">Quantity Available</label>
+                <input type="text" id="editProductQuantity">
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
