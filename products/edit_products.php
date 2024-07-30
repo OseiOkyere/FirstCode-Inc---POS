@@ -1,6 +1,6 @@
 
 <?php
-include('database/connect_db.php');
+include('../database/connect_db.php');
 
 $id = $_POST['id'];
 $name = $_POST['name'];

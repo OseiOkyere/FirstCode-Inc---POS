@@ -86,7 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Products Page Initialization
     function initializeProductsPage() {
-        const productsData = Array.from(document.querySelectorAll('#productsTable tbody tr')).map(row => ({
+        const productsTable = document.getElementById('productsTable');
+        const productsData = Array.from(productsTable.querySelectorAll('tbody tr')).map(row => ({
             id: row.cells[0].textContent,
             name: row.cells[1].textContent,
             category: row.cells[2].textContent,
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }));
 
         function displayProducts(data) {
-            const tableBody = document.getElementById('productsTable').getElementsByTagName('tbody')[0];
+            const tableBody = productsTable.getElementsByTagName('tbody')[0];
             tableBody.innerHTML = '';
 
             data.forEach(product => {
@@ -115,6 +116,32 @@ document.addEventListener('DOMContentLoaded', () => {
             addEditDeleteEventListeners();
         }
 
+
+        function addEditDeleteEventListeners() {
+            const editButtons = document.querySelectorAll('.editBtn');
+            const deleteButtons = document.querySelectorAll('.deleteBtn');
+        
+            editButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const productId = this.getAttribute('data-id');
+                    const product = productsData.find(p => p.id == productId);
+                    if (product) {
+                        openEditProductModal(product);
+                    }
+                });
+            });
+        
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const productId = this.getAttribute('data-id');
+                    if (confirm('Are you sure you want to delete this product?')) {
+                        deleteProduct(productId);
+                    }
+                });
+            });
+        }
+
+        
         function searchProducts() {
             const filter = document.getElementById('productSearch').value.toLowerCase();
 
@@ -150,52 +177,128 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function addProduct(product) {
-            productsData.push(product);
-            displayProducts(productsData);
+            // Send AJAX request to add_product.php
+            fetch('./products/add_product.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'name': product.name,
+                    'category': product.category,
+                    'unit_price': product.unit_price,
+                    'quantity': product.quantity
+                })
+            })
+            .then(response => response.text())
+            .then(result => {
+                if (result.includes("New product added successfully")) {
+                    // Refresh the products table
+                    initializeProductsPage();
+                    closeAddProductModal();
+                } else {
+                    alert("Error adding product: " + result);
+                }
+            })
+            .catch(error => console.error('Error:', error));
         }
 
+        //DELETE PRODUCT
         function deleteProduct(productId) {
-            const index = productsData.findIndex(product => product.id == productId);
-            if (index !== -1) {
-                productsData.splice(index, 1);
-                displayProducts(productsData);
-            }
+            // Send AJAX request to delete_product.php
+            fetch('./products/delete_product.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({ 'id': productId })
+            })
+            .then(response => response.text())
+            .then(result => {
+                if (result.includes("Product deleted successfully")) {
+                    // Refresh the products table
+                    initializeProductsPage();
+                } else {
+                    alert("Error deleting product: " + result);
+                }
+            })
+            .catch(error => console.error('Error:', error));
         }
+        
+
+        productsTable.addEventListener('click', (e) => {
+            if (e.target.classList.contains('editBtn')) {
+                const productId = e.target.getAttribute('data-id');
+                const product = productsData.find(p => p.id == productId);
+                if (product) {
+                    openEditProductModal(product);
+                }
+            }
+        
+            if (e.target.classList.contains('deleteBtn')) {
+                const productId = e.target.getAttribute('data-id');
+                if (confirm('Are you sure you want to delete this product?')) {
+                    deleteProduct(productId);
+                }
+            }
+        });
+        
 
         // Event listeners
         document.getElementById('productSearch').addEventListener('keyup', searchProducts);
-        document.querySelector('.close').addEventListener('click', closeEditProductModal);
-
-        document.getElementById('addProductBtn').addEventListener('click', openAddProductModal);
-        document.querySelectorAll('.close').forEach(button => {
+        document.querySelectorAll('#editProductModal .close').forEach(button => {
+            button.addEventListener('click', closeEditProductModal);
+        });
+        document.querySelectorAll('#addProductModal .close').forEach(button => {
             button.addEventListener('click', closeAddProductModal);
         });
 
+        document.getElementById('addProductBtn').addEventListener('click', openAddProductModal);
+
+
+        //EDIT PRODUCT
         document.getElementById('editProductForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const productId = document.getElementById('editProductId').value;
-            const product = productsData.find(p => p.id == productId);
-            if (product) {
-                product.name = document.getElementById('editProductName').value;
-                product.category = document.getElementById('editProductCategory').value;
-                product.unit_price = document.getElementById('editProductUnitPrice').value;
-                product.quantity = document.getElementById('editProductQuantity').value;
-                displayProducts(productsData);
-                closeEditProductModal();
-            }
+            const editedProduct = {
+                id: document.getElementById('editProductId').value,
+                name: document.getElementById('editProductName').value,
+                category: document.getElementById('editProductCategory').value,
+                unit_price: document.getElementById('editProductUnitPrice').value,
+                quantity: document.getElementById('editProductQuantity').value
+            };
+        
+            // Send AJAX request to edit_product.php
+            fetch('products/edit_products.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(editedProduct)
+            })
+            .then(response => response.text())
+            .then(result => {
+                if (result.includes("Product updated successfully")) {
+                    // Refresh the products table
+                    initializeProductsPage();
+                    closeEditProductModal();
+                } else {
+                    alert("Error updating product: " + result);
+                }
+            })
+            .catch(error => console.error('Error:', error));
         });
+
+        
 
         document.getElementById('addProductForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const newProduct = {
-                id: productsData.length + 1,  // Assuming IDs are sequential
                 name: document.getElementById('newProductName').value,
                 category: document.getElementById('newProductCategory').value,
                 unit_price: document.getElementById('newProductUnitPrice').value,
                 quantity: document.getElementById('newProductQuantity').value
             };
             addProduct(newProduct);
-            closeAddProductModal();
         });
 
         displayProducts(productsData);

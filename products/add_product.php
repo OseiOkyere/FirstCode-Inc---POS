@@ -1,6 +1,6 @@
 
 <?php
-include('database/connect_db.php');
+include('../database/connect_db.php');
 
 $name = $_POST['name'];
 $category = $_POST['category'];

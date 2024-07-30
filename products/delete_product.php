@@ -1,6 +1,6 @@
 // delete_product.php
 <?php
-include('database/connect_db.php');
+include('../database/connect_db.php');
 
 $id = $_POST['id'];
 
