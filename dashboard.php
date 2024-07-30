@@ -37,5 +37,7 @@ $totalSalesMonth = $resultMonth->fetch_assoc()['total'];
 
     <div class="chart-container">
         <canvas id="salesChart"></canvas>
+        <br> <br>
+        <strong><center>Monthly Sales Chart</center></strong>
     </div>
 </div>
