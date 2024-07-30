@@ -126,4 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.warn('No sidebar links found.');
     }
+
+  
+    // Load the default page (dashboard.php) on initial load
+    fetchPageContent('dashboard.php');
 });
