@@ -1,4 +1,7 @@
 <?php
+//dashboard.php
+
+
 include('database/connect_db.php');
 
 // Fetch total sales data for today, yesterday, and this month

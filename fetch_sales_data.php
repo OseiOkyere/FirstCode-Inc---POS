@@ -1,4 +1,8 @@
+
 <?php
+//fetch_sales_data.php
+
+
 include('database/connect_db.php');
 
 // Fetch sales data for the current month

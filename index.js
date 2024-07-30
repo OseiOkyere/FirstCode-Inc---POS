@@ -1,3 +1,5 @@
+//index.js
+
 document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch and load page content
     function fetchPageContent(pageUrl) {
@@ -75,8 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initial display
         displayTable(salesData);
 
-        // Initialize chart after content load
-        initializeChart();
+        
     }
 
     // Function to initialize or re-render the chart
@@ -116,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sideMenuLinks = document.querySelectorAll('.side-menu.top li a');
     if (sideMenuLinks.length > 0) {
         sideMenuLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const pageToLoad = this.getAttribute('data-page');
                 console.log(`Loading page: ${pageToLoad}`);
@@ -127,7 +128,23 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('No sidebar links found.');
     }
 
-  
+    //Change active sidebar when clicked
+    const allSideMenu = document.querySelectorAll('.sidebar .side-menu li a');
+
+    allSideMenu.forEach(item => {
+        const li = item.parentElement;
+
+        item.addEventListener('click', function () {
+            // Remove 'active' class from all menu items
+            allSideMenu.forEach(i => i.parentElement.classList.remove('active'));
+            // Add 'active' class to the clicked menu item
+            li.classList.add('active');
+        });
+    });
+
+
     // Load the default page (dashboard.php) on initial load
     fetchPageContent('dashboard.php');
+    // Initialize chart after content load
+    initializeChart();
 });
