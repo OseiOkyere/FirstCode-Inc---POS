@@ -1,14 +1,23 @@
+/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f4f4f4;
 }
 
+/* Dashboard Section */
 .dashboard {
-    padding: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
+/* Cards Section */
 .cards {
     display: flex;
     justify-content: space-between;
@@ -16,30 +25,43 @@ body {
 }
 
 .card {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background: #007bff;
+    border: none;
+    border-radius: 8px;
     padding: 20px;
     width: 30%;
     text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 .card h3 {
     margin-top: 0;
+    font-size: 1.2em;
 }
 
 .card p {
-    font-size: 1.5em;
+    font-size: 2em;
     margin: 10px 0 0;
 }
 
+/* Chart Container */
 .chart-container {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 canvas {
-    width: 100% ;
-    height: auto ;
+    width: 100%;
+    height: auto;
 }
