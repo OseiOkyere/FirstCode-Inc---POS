@@ -31,8 +31,10 @@ $totalSalesMonth = $resultMonth->fetch_assoc()['total'];
         <div class="card" id="totalSalesMonth">
             <h3>Total Sales This Month</h3>
             <p id="salesMonth">$<?php echo number_format($totalSalesMonth, 2); ?></p>
-        </div>
+        </div> 
     </div>
+
+
     <div class="chart-container">
         <canvas id="salesChart"></canvas>
     </div>
