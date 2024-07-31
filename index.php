@@ -1,13 +1,17 @@
 <?php
+
+/* 
 session_start();
 
-// Check if user is logged in
+Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: ./login/login.php");
     exit();
 }
-?>
 
+*/
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,9 +50,7 @@ if (!isset($_SESSION['user_id'])) {
             <li>
                 <a href="#" data-page="./purchase/purchase.php"><i class="bx bx-cart-add"></i><span class="text">Purchases</span></a>
             </li>
-            <li>
-                <a href="#" data-page="settings.php"><i class="bx bx-cog"></i><span class="text">Settings</span></a>
-            </li>
+        
             <li>
                 <div>
                 <a href="logout.php" data-page="logout.php"><i class="bx bx-log-out"></i><span class="text">Logout</span></a>
@@ -68,9 +70,19 @@ if (!isset($_SESSION['user_id'])) {
         <!-- Footer -->
         <footer>
             <p>&copy; 2024 First Code Inc. All rights reserved.</p>
+
+            <a class="socialIcons">
+                    <i class='bx bxl-facebook-circle' ></i>
+                    <i class='bx bxl-youtube' ></i>
+                    <i class='bx bxl-twitter' ></i>
+                    <i class='bx bxl-tiktok' ></i>
+                    </a>
+
+
         </footer>
     </section>
     <script src="./purchase/purchase.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
+
