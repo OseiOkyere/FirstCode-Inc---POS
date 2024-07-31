@@ -346,13 +346,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const sideMenuLinks = document.querySelectorAll('.side-menu.top li a');
     if (sideMenuLinks.length > 0) {
         sideMenuLinks.forEach(link => {
+
             link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const pageToLoad = this.getAttribute('data-page');
                 console.log(`Loading page: ${pageToLoad}`);
+                
+                if(pageToLoad == 'logout.php'){
+                        window.location.href = 'logout.php';
+                }else{
                 fetchPageContent(pageToLoad);
+                }
             });
         });
+    
     } else {
         console.warn('No sidebar links found.');
     }
