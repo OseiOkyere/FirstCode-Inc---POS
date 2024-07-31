@@ -1,8 +1,18 @@
 <?php
 include('database/connect_db.php');
 
-// Update SQL query to include purchase_datetime
-$sql = "SELECT sale_id, item_name, category, unit_price, quantity, purchase_datetime, (unit_price * quantity) AS total_cost FROM sales";
+// Update SQL query to include purchase_datetime and join with products table
+$sql = "SELECT 
+            s.sale_id, 
+            p.name AS item_name, 
+            p.category, 
+            p.unit_price, 
+            s.quantity, 
+            s.purchase_datetime, 
+            s.total_cost 
+        FROM sales s
+        JOIN products p ON s.product_id = p.id";
+
 $result = $conn->query($sql);
 
 $sales_data = array();
@@ -24,7 +34,7 @@ if ($result->num_rows > 0) {
                 <th>Category</th>
                 <th>Unit Price ($)</th>
                 <th>Quantity</th>
-                <th>Total Cost</th>
+                <th>Total Cost ($)</th>
                 <th>Purchase Date & Time</th> <!-- New column header -->
             </tr>
         </thead>

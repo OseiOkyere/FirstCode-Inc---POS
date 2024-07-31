@@ -137,3 +137,16 @@ body {
     width: calc(100% - 48px);
     margin-left: auto;
 }
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--light);
+    padding: 10px 20px;
+    font-family: var(--lato);
+    font-size: 14px;
+    color: var(--dark-grey);
+    text-align: center;
+    border-top: 1px solid var(--grey);
+}
