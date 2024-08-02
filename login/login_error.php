@@ -11,7 +11,7 @@
         <div class="login-card">
             <h3 class="login-title">Login Error</h3>
             <p class="error-message"><?php echo htmlspecialchars($_GET['error']); ?></p>
-            <a href="index.php" class="btn-submit">Go Back</a>
+            <a href="../" class="btn-submit">Go Back</a>
         </div>
     </div>
 </body>
