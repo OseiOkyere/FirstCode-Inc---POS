@@ -4,7 +4,7 @@ session_start();
 
 //Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ./login/login.php");
+    header("Location: ./login/login.html");
     exit();
 }
 
@@ -23,9 +23,10 @@ if (!isset($_SESSION['user_id'])) {
     <script src="./products/products.js"></script>
     <script src="./js/jquery-3.5.1.min.js"></script>
     <script src="./purchase/purchase.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/> 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+    <script src="./chart.js"></script>
+    <link href="boxicons-2.1.4\boxicons-2.1.4\css\boxicons.min.css" rel="stylesheet"/> 
+    <script src="js/jquery-3.5.1.min.js"></script>
     <title>HomePage</title>
 </head>
 <body>

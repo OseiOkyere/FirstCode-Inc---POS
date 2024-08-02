@@ -1,3 +1,12 @@
+<?php
+    if(isset($_GET['error'])){
+        $error = $_GET['error'];
+    }else{
+        $error = " ";
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +18,7 @@
 <body>
     <div class="container">
         <div class="signup-card">
+            <center><?php echo $error ?></center>
             <h3 class="signup-title">Sign Up</h3>
             <form id="signupForm" method="POST" action="signup_process.php">
                 <div class="form-group">
@@ -37,3 +47,4 @@
     <script src="signup.js"></script>
 </body>
 </html>
+  
