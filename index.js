@@ -261,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('addProductBtn').addEventListener('click', openAddProductModal);
 
+        
 
         //EDIT PRODUCT
         document.getElementById('editProductForm').addEventListener('submit', (e) => {
@@ -274,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         
             // Send AJAX request to edit_product.php
-            fetch('products/edit_products.php', {
+            fetch('./products/edit_products.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -312,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to initialize or re-render the chart
     function initializeChart() {
-        fetch('fetch_sales_data.php')
+        fetch('./sales/fetch_sales_data.php')
             .then(response => response.json())
             .then(data => {
                 const labels = data.map(item => item.date);
@@ -376,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Load the default page (dashboard.php) on initial load
-    fetchPageContent('dashboard.php');
+    fetchPageContent('./dashboard/dashboard.php');
 
     setTimeout(() => {
         initializeChart();

@@ -14,9 +14,9 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="POS.css" />
-    <link rel="stylesheet" href="dashboard.css" />
-    <link rel="stylesheet" href="sales.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./dashboard/dashboard.css" />
+    <link rel="stylesheet" href="./sales/sales.css" />
     <link rel="stylesheet" href="./products/products.css">
     <script src="chart.js"></script>
     <script src="./products/products.js"></script>
@@ -26,7 +26,7 @@ if (!isset($_SESSION['user_id'])) {
 
     <!-- Local Libraries -->
     <script src="./chart.js"></script>
-    <link href="boxicons-2.1.4\boxicons-2.1.4\css\boxicons.min.css" rel="stylesheet"/> 
+    <link href="./boxicons-2.1.4/boxicons-2.1.4/css/boxicons.min.css" rel="stylesheet"/> 
     <script src="js/jquery-3.5.1.min.js"></script>
 
     <!-- Online Libraries -->
@@ -46,10 +46,10 @@ if (!isset($_SESSION['user_id'])) {
         </a>
         <ul class="side-menu top">
             <li class="active">
-                <a href="#" data-page="dashboard.php"><i class="bx bxs-dashboard"></i><span class="text">Dashboard</span></a>
+                <a href="#" data-page="./dashboard/dashboard.php"><i class="bx bxs-dashboard"></i><span class="text">Dashboard</span></a>
             </li>
             <li>
-                <a href="#" data-page="sales.php"><i class="bx bx-transfer"></i><span class="text">Sales</span></a>
+                <a href="#" data-page="./sales/sales.php"><i class="bx bx-transfer"></i><span class="text">Sales</span></a>
             </li>
             <li>
                 <a href="#" data-page="./products/products.php"><i class="bx bx-receipt bx-flip-horizontal"></i><span class="text">Product</span></a>
@@ -74,13 +74,21 @@ if (!isset($_SESSION['user_id'])) {
                 <!-- Dynamic content will be loaded here -->
             </div>
         </main>
+        <br>
+        <br>
         <!-- Footer -->
         <footer>
             <p>&copy; 2024 First Code Inc. All rights reserved.</p>
+            
+        <i class='bx bxl-github'></i>
+        <i class='bx bxl-instagram'></i>
+        <i class="bx bxl-facebook"></i>
+        <i class="bx bxl-twitter"></i>
         </footer>
+       
     </section>
     <script src="./purchase/purchase.js"></script>
-    <script src="index.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
 

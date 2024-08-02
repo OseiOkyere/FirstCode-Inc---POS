@@ -1,5 +1,5 @@
 <?php
-include('database/connect_db.php');
+include('../database/connect_db.php');
 
 // Update SQL query to include purchase_datetime and join with products table
 $sql = "SELECT 

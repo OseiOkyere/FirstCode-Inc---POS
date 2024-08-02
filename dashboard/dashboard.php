@@ -2,7 +2,7 @@
 //dashboard.php
 
 
-include('database/connect_db.php');
+include('../database/connect_db.php');
 
 // Fetch total sales data for today, yesterday, and this month
 $sqlToday = "SELECT SUM(total_cost) AS total FROM sales WHERE DATE(purchase_datetime) = CURDATE()";
