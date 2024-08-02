@@ -52,6 +52,7 @@ body {
 
 /* Chart Container */
 .chart-container {
+    height: 380px;
     width: 100%;
     max-width: 800px;
     margin: 0 auto;

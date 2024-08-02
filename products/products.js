@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editProductModal.style.display = 'block';
     }
 
+
     // Function to add event listeners to edit and delete buttons
     function addEditDeleteEventListeners() {
         const editButtons = document.querySelectorAll('.editBtn');
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+
         const deleteButtons = document.querySelectorAll('.deleteBtn');
         deleteButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -70,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editProductModal.style.display = 'none';
     }
 
+    
     // Function to delete a product (dummy function, to be replaced with actual implementation)
     function deleteProduct(productId) {
         const row = document.querySelector(`button[data-id="${productId}"]`).closest('tr');

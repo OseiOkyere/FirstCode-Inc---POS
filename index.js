@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log('Page content loaded successfully');
                     currentWindow.innerHTML = html;
                     initializePageScripts(); // Initialize scripts after content load
+                    initializeChart();
                 })
                 .catch(error => console.error('Error loading page:', error));
         } else {
@@ -376,15 +377,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load the default page (dashboard.php) on initial load
     fetchPageContent('dashboard.php');
-    initializeChart();
+
+    setTimeout(() => {
+        initializeChart();
+    }, 2000);
 });
 
 
 
-
-
-function initializePurchasePage() {
 //PURCHASE JS
+function initializePurchasePage() {
 document.getElementById('productSearch').addEventListener('focus', () => {
     let products = [];
     let cart = [];

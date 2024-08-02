@@ -77,15 +77,6 @@ if (!isset($_SESSION['user_id'])) {
         <!-- Footer -->
         <footer>
             <p>&copy; 2024 First Code Inc. All rights reserved.</p>
-
-            <a class="socialIcons">
-                    <i class='bx bxl-facebook-circle' ></i>
-                    <i class='bx bxl-youtube' ></i>
-                    <i class='bx bxl-twitter' ></i>
-                    <i class='bx bxl-tiktok' ></i>
-                    </a>
-
-
         </footer>
     </section>
     <script src="./purchase/purchase.js"></script>

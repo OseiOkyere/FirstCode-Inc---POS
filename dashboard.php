@@ -21,20 +21,28 @@ $totalSalesMonth = $resultMonth->fetch_assoc()['total'];
 
 <div class="dashboard">
     <div class="cards">
-        
+    
         <div class="card" id="totalSalesToday">
-            <h3>Total Sales Today</h3>
-            <p id="salesToday">$<?php echo number_format($totalSalesToday, 2); ?></p>
+        <i class='bx bx-line-chart'></i>
+            <div>
+                <h3>Total Sales Today</h3>
+                <p id="salesToday">$<?php echo number_format($totalSalesToday, 2); ?></p>
         </div>
+        </div>
+
         <div class="card" id="totalSalesYesterday">
-            <h3>Total Sales Yesterday</h3>
+        <i class='bx bx-bar-chart-alt-2'></i>
+            <div>
+                <h3>Total Sales Yesterday</h3>
             
             <p id="salesYesterday">$<?php echo number_format($totalSalesYesterday, 2); ?></p>
         </div>
+        </div>
         <div class="card" id="totalSalesMonth">
-            <h3>Total Sales This Month</h3>
+        <i class='bx bx-calendar-check'></i>
+            <div><h3>Total Sales This Month</h3>
             
-            <p id="salesMonth">$<?php echo number_format($totalSalesMonth, 2); ?></p>
+            <p id="salesMonth">$<?php echo number_format($totalSalesMonth, 2); ?></p></div>
         </div> 
     </div>
 
@@ -42,7 +50,7 @@ $totalSalesMonth = $resultMonth->fetch_assoc()['total'];
     <div class="chart-container">
         <canvas id="salesChart"></canvas>
         <br> <br>
+       
         <strong><center>Monthly Sales Chart</center></strong>
     </div>
 </div>
-<?php echo htmlspecialchars(`<script src='./chart.js'></script>`) ;?>
