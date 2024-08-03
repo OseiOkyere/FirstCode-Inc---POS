@@ -15,6 +15,7 @@ include('../database/connect_db.php');
             overflow-y: auto;
         }
     </style>
+    
 </head>
 <body>
 <div class="container mt-5">
