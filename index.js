@@ -327,8 +327,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         datasets: [{
                             label: 'Sales',
                             data: dataValues,
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(255, 165, 0, 0.2)',
+                            borderColor: 'rgba(169, 169, 169, 1)',
                             borderWidth: 1
                         }]
                     },

@@ -2,7 +2,7 @@
 include('../database/connect_db.php');
 
 // Fetch products data from the database
-$sql = "SELECT id, name, category, unit_price, quantity FROM products";
+$sql = "SELECT id, name, category, unit_price, quantity FROM inventory";
 $result = $conn->query($sql);
 ?>
 

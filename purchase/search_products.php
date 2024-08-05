@@ -2,7 +2,7 @@
 include('../database/connect_db.php');
 
 $query = $_GET['query'];
-$sql = "SELECT * FROM products WHERE name LIKE '%$query%'";
+$sql = "SELECT * FROM inventory WHERE name LIKE '%$query%'";
 $result = $conn->query($sql);
 
 $products = [];

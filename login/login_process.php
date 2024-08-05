@@ -10,7 +10,7 @@ $error = '';
 
 try {
     // Prepare and execute SQL statement
-    $stmt = $conn->prepare("SELECT id, username, password_hash FROM users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT id, username, password_hash FROM employees WHERE username = ?");
     $stmt->bind_param("s", $user);
     $stmt->execute();
     $stmt->store_result();

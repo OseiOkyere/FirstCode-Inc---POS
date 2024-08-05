@@ -8,14 +8,31 @@ include('../database/connect_db.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purchase Page</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap.min.css">
+   
     <style>
         .product-list {
             max-height: 300px;
             overflow-y: auto;
         }
-    </style>
-    
+        .row{
+            
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-top: 80px;
+
+        }
+        .col-md-4{
+            width: 40%;
+        }
+
+        #sellBtn{
+            background-color: green;
+            
+        }
+</style>
+
 </head>
 <body>
 <div class="container mt-5">

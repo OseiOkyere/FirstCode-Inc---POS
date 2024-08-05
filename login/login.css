@@ -71,7 +71,7 @@ body {
 
 .forgot-password {
     text-decoration: none;
-    color: #007bff;
+    color: orange;
 }
 
 .forgot-password:hover {
@@ -82,17 +82,17 @@ body {
 .btn-submit {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: orange;
     border: none;
     border-radius: 5px;
-    color: #fff;
+    color: #000;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .btn-submit:hover {
-    background-color: #0056b3;
+    background-color: rgb(221, 143, 0);
 }
 
 /* Error message styling */

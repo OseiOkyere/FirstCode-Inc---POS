@@ -1,23 +1,20 @@
 <?php
 //dashboard.php
-
-
 include('../database/connect_db.php');
 
 // Fetch total sales data for today, yesterday, and this month
-$sqlToday = "SELECT SUM(total_cost) AS total FROM sales WHERE DATE(purchase_datetime) = CURDATE()";
+$sqlToday = "SELECT SUM(total_cost) AS total FROM invoices WHERE DATE(purchase_datetime) = CURDATE()";
 $resultToday = $conn->query($sqlToday);
 $totalSalesToday = $resultToday->fetch_assoc()['total'];
 
-$sqlYesterday = "SELECT SUM(total_cost) AS total FROM sales WHERE DATE(purchase_datetime) = CURDATE() - INTERVAL 1 DAY";
+$sqlYesterday = "SELECT SUM(total_cost) AS total FROM invoices WHERE DATE(purchase_datetime) = CURDATE() - INTERVAL 1 DAY";
 $resultYesterday = $conn->query($sqlYesterday);
 $totalSalesYesterday = $resultYesterday->fetch_assoc()['total'];
 
-$sqlMonth = "SELECT SUM(total_cost) AS total FROM sales WHERE MONTH(purchase_datetime) = MONTH(CURDATE()) AND YEAR(purchase_datetime) = YEAR(CURDATE())";
+$sqlMonth = "SELECT SUM(total_cost) AS total FROM invoices WHERE MONTH(purchase_datetime) = MONTH(CURDATE()) AND YEAR(purchase_datetime) = YEAR(CURDATE())";
 $resultMonth = $conn->query($sqlMonth);
 $totalSalesMonth = $resultMonth->fetch_assoc()['total'];
 ?>
-
 
 <div class="dashboard">
     <div class="cards">

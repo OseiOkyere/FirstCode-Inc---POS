@@ -30,7 +30,7 @@ body {
 
 #addProductBtn {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #ffaa00;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -39,7 +39,7 @@ body {
 }
 
 #addProductBtn:hover {
-    background-color: #0056b3;
+    background-color: #e09705;
 }
 
 table {
@@ -49,7 +49,7 @@ table {
 }
 
 thead {
-    background-color: #007bff;
+    background-color: #ff7700;
     color: #fff;
 }
 
@@ -150,8 +150,8 @@ input[type="number"] {
 
 button[type="submit"] {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #ffb300;
+    color: #000;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -159,5 +159,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #d69004;
 }

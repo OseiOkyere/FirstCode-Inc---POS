@@ -7,7 +7,7 @@ $category = $_POST['category'];
 $unit_price = $_POST['unit_price'];
 $quantity = $_POST['quantity'];
 
-$sql = "INSERT INTO products (name, category, unit_price, quantity) VALUES ('$name', '$category', '$unit_price', '$quantity')";
+$sql = "INSERT INTO inventory (name, category, unit_price, quantity) VALUES ('$name', '$category', '$unit_price', '$quantity')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New product added successfully";

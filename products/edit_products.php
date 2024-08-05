@@ -8,7 +8,7 @@ $category = $_POST['category'];
 $unit_price = $_POST['unit_price'];
 $quantity = $_POST['quantity'];
 
-$sql = "UPDATE products SET name='$name', category='$category', unit_price='$unit_price', quantity='$quantity' WHERE id='$id'";
+$sql = "UPDATE inventory SET name='$name', category='$category', unit_price='$unit_price', quantity='$quantity' WHERE id='$id'";
 
 if ($conn->query($sql) === TRUE) {
     echo "Product updated successfully";

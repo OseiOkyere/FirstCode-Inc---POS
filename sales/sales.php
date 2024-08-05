@@ -10,8 +10,8 @@ $sql = "SELECT
             s.quantity, 
             s.purchase_datetime, 
             s.total_cost 
-        FROM sales s
-        JOIN products p ON s.product_id = p.id ORDER BY s.purchase_datetime DESC";
+        FROM invoices s
+        JOIN inventory p ON s.product_id = p.id ORDER BY s.purchase_datetime DESC";
 
 $result = $conn->query($sql);
 

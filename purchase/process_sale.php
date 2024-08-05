@@ -15,7 +15,7 @@ if (!empty($cart)) {
             $total_cost = $product['price'] * $quantity;
 
             // Check available quantity
-            $sql_check = "SELECT quantity FROM products WHERE id = '$product_id'";
+            $sql_check = "SELECT quantity FROM inventory WHERE id = '$product_id'";
             $result_check = $conn->query($sql_check);
             if ($result_check->num_rows == 0) {
                 throw new Exception("Product ID $product_id does not exist.");
@@ -33,13 +33,13 @@ if (!empty($cart)) {
             }
 
             // Insert into sales table
-            $sql_insert = "INSERT INTO sales (product_id, quantity, total_cost, purchase_datetime) VALUES ('$product_id', '$quantity', '$total_cost', '$date')";
+            $sql_insert = "INSERT INTO invoices (product_id, quantity, total_cost, purchase_datetime) VALUES ('$product_id', '$quantity', '$total_cost', '$date')";
             if (!$conn->query($sql_insert)) {
                 throw new Exception("Error inserting sale: " . $conn->error);
             }
 
             // Update quantity in products table
-            $sql_update = "UPDATE products SET quantity = quantity - $quantity WHERE id = '$product_id'";
+            $sql_update = "UPDATE inventory SET quantity = quantity - $quantity WHERE id = '$product_id'";
             if (!$conn->query($sql_update)) {
                 throw new Exception("Error updating product quantity: " . $conn->error);
             }
